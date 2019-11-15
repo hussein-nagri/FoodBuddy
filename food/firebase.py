@@ -1,4 +1,5 @@
 import pyrebase
+from foodBuddy.food.models import Food
 
 config = {
   "apiKey": "AIzaSyDKQKHxU3YQQXwFsWFTdycplvnMuUnN4yc",
@@ -17,5 +18,9 @@ db = firebase.database()
 list = db.get().val()
 
 for key, value in enumerate(list):
-    print(key, value, list[value])
+  foodObject = Food(food_name = list[value]["item"],
+       food_amount = list[value]["amount"],
+       date =list[value]["date"])
+  print(foodObject)
+  print(key, value, list[value])
 print(list)
