@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from math import ceil
+import datetime 
+from .models import Food
 
 # Create your views here.
 from django.http import HttpResponse
@@ -7,7 +9,10 @@ from django.http import HttpResponse
 def index(request):
 
     allProds = []
-
+    name = Food(food_name="apples",
+              food_amount = 3,
+              date = (11/2/4) )
+    print(name.food_amount)
     params = {'allProds':allProds}
     return render(request, 'food/index.html', params)
 

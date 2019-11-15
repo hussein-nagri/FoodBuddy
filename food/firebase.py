@@ -1,5 +1,14 @@
 import pyrebase
-from foodBuddy.food.models import Food
+# from django.conf import settings
+# from foodBuddy.foodBuddy import settings as defaultSettings
+# import django
+# settings.configure(DEBUG=True)
+# django.setup()
+
+# from foodBuddy.food.models import Food
+
+
+# prods = Food.objects.values()
 
 config = {
   "apiKey": "AIzaSyDKQKHxU3YQQXwFsWFTdycplvnMuUnN4yc",
@@ -18,9 +27,9 @@ db = firebase.database()
 list = db.get().val()
 
 for key, value in enumerate(list):
-  foodObject = Food(food_name = list[value]["item"],
-       food_amount = list[value]["amount"],
-       date =list[value]["date"])
-  print(foodObject)
+  # foodObject = Food(food_name = list[value]["item"],
+  #      food_amount = list[value]["amount"],
+  #      date =list[value]["date"])
+  # print(foodObject)
   print(key, value, list[value])
 print(list)
