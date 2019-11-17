@@ -2,22 +2,20 @@ from django.shortcuts import render
 from math import ceil
 import datetime 
 from .models import Food
+from .firebase import updateSQL
 
 # Create your views here.
 from django.http import HttpResponse
 
 def index(request):
 
-    allProds = []
-    name = Food(food_name="apples",
-              food_amount = 3,
-              date = (11/2/4) )
-    print(name.food_amount)
-    params = {'allProds':allProds}
+
+    allFoods = updateSQL()
+    params = {'allFoods' : allFoods}
     return render(request, 'food/index.html', params)
 
 def about(request):
-    return render(request, 'shop/about.html')
+    return render(request, 'food/about.html')
 
 def contact(request):
     return HttpResponse("We are at contact")
