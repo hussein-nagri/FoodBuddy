@@ -35,7 +35,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                       {% for food in allFoods %}
+
+                       {% for food in allFoods reversed %}
                         <tr>
                           <th scope="row">{{food.product_id}}</th>
                           <td>{{food.food_name}}</td>
@@ -64,7 +65,9 @@
 
 <script>
     $(document).ready(function() {
-        $('#example').DataTable();
+        $('#example').DataTable({
+            "order": [],
+        });
     } );
 </script>
 

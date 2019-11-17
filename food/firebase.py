@@ -23,18 +23,15 @@ def updateSQL():
     foodObject = Food(food_name=list[value]["item"],
                       food_amount=list[value]["amount"],
                       date=list[value]["date"])
-    print(foodObject.date)
     foodObject.food_amount = foodObject.food_amount.split(" ", 1)[0]
     date = foodObject.date.split("/")
     foodObject.date = f"{date[2]}-{date[0]}-{date[1]}"
   
     fod = Food.objects.filter(food_name=foodObject.food_name, food_amount=foodObject.food_amount, date=foodObject.date)
-    print(len(fod))
     if (len(fod) == 0):
       FoodItem = Food(food_name=foodObject.food_name, food_amount=foodObject.food_amount, date=foodObject.date)
       FoodItem.save()
   
-  print(list)
   
   allFoods = Food.objects.all()
   return allFoods
