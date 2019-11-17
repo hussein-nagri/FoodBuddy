@@ -4,7 +4,7 @@ from django.db import models
 class Food(models.Model):
     product_id = models.AutoField(primary_key=True)
     food_name = models.CharField(max_length=500, default="")
-    food_amount = models.IntegerField(default=0)
+    food_amount = models.FloatField(default=0.0)
     date = models.DateField()
 
 
