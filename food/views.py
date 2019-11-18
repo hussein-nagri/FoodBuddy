@@ -9,7 +9,6 @@ from django.http import HttpResponse
 
 def index(request):
 
-
     allFoods = updateSQL()
     params = {'allFoods' : allFoods}
     return render(request, 'food/index.html', params)
@@ -19,6 +18,8 @@ def about(request):
 
 def contact(request):
     return HttpResponse("We are at contact")
+
+
 
 def tracker(request):
     return HttpResponse("We are at tracker")
