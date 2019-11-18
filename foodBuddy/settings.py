@@ -57,7 +57,7 @@ ROOT_URLCONF = 'foodBuddy.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['foodBuddy/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
