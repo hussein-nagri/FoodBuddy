@@ -3,14 +3,14 @@ from math import ceil
 import datetime 
 from .models import Food
 from .firebase import updateSQL
-from .mongoDb import loadFridge
 # Create your views here.
 from django.http import HttpResponse
 
 def index(request):
 
-    allFoods = loadFridge()
+    allFoods = updateSQL()
     params = {'allFoods' : allFoods}
+    print(allFoods)
     return render(request, 'food/index.html', params)
 
 def about(request):
